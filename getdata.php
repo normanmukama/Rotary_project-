@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require 'dbconnection.php';
+require 'dbconn.php';
 
 if(isset($_POST['delete_student'])){
     $student_id = mysqli_real_escape_string($conn, $_POST['delete_student']);
@@ -9,12 +9,12 @@ if(isset($_POST['delete_student'])){
 
     if($query_run){
         $_SESSION['message'] = "Member deleted successfully...";
-        header('Location:  index2.php');
+        header('Location:  members.php');
         exit(0);
     }
     else{
         $_SESSION['message'] = "Student not deleted";
-        header('Location:  index2.php');
+        header('Location:  members.php');
         exit(0);
     }
 }
@@ -50,7 +50,7 @@ if(isset($_POST['add_student'])){
     $query_run = mysqli_query($conn, $query);
     if($query_run){
         $_SESSION['message'] = "Member added successfully...";
-        header('Location:  index2.php');
+        header('Location:  members.php');
         exit(0);
     }else{
         $_SESSION['message'] = "Student not created.";

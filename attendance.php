@@ -1,5 +1,5 @@
 <?php
-require 'dbconnection.php';
+require 'dbconn.php';
 session_start();
 
 if(isset($_POST['submit'])){
