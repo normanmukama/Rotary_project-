@@ -1,4 +1,4 @@
-<?php 
+<?php
 require 'dbconn.php';
 session_start();
 
@@ -6,6 +6,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,49 +16,50 @@ session_start();
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
     <!-- CSS only -->
 
-    
-        <!-- Link Bootstrap CSS CDN -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <!-- link the datatables here -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <!-- Link Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- link the datatables here -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 </head>
-<body>
-   <div class="container mt-4">
-       <?php require 'message.php' ?>
-       <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="text-primary">ROTARY MEMBERS' DETAILS
-                        <a href="index2.php" class="btn btn-danger float-right">Add Member</a>
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped table-bordered" id="myTable">
-                        <thead>
-                            <tr>
-                                <!-- <th>ID</th> -->
-                                <th>Name</th>
-                                <th>Course</th>
-                                <th>Email</th>
-                                <th>Attendance</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php   
-                              $query = "SELECT * FROM mycrud2";
-                              $query_run = mysqli_query($conn, $query);
 
-                              if(mysqli_num_rows($query_run) > 0){
-                                  foreach($query_run as $student){
-                                    //   echo $student['name'];
-                                    ?>
+<body>
+    <div class="container mt-4">
+        <?php require 'message.php' ?>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-primary">ROTARY MEMBERS' DETAILS
+                            <a href="index2.php" class="btn btn-danger float-right">Add Member</a>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped table-bordered" id="myTable">
+                            <thead>
+                                <tr>
+                                    <!-- <th>ID</th> -->
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>Email</th>
+                                    <th>Attendance</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $query = "SELECT * FROM mycrud2";
+                                $query_run = mysqli_query($conn, $query);
+
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $student) {
+                                        //   echo $student['name'];
+                                ?>
                                         <tr>
-                                            
+
                                             <!-- <td><?= $student['id']; ?></td> -->
                                             <td><?= $student['name']; ?></td>
                                             <td><?= $student['course']; ?></td>
@@ -71,25 +73,26 @@ session_start();
                                                 </form>
                                             </td>
                                         </tr>
-                                    <?php
-                                  }
-                              }else{
-                                  echo "<h4>No records found</h4>";
-                              }
-                            ?>
-                        </tbody>
-                    </table>
+                                <?php
+                                    }
+                                } else {
+                                    echo "<h4>No records found</h4>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-          </div>
         </div>
     </div>
 
 
     <script>
-        $(document).ready( function () {
+        $(document).ready(function() {
             $('#myTable').DataTable();
-        } );
+        });
     </script>
-    </body>
+</body>
+
 </html>
