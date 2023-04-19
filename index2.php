@@ -10,9 +10,9 @@ include "include.php";
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>ADD MEMBER DETAILS
+                        <h3>ADD MEMBER DETAILS
                             <a href="code2.php" class="btn btn-danger float-right">Back</a>
-                        </h4>
+                        </h3>
                     </div>
                     <div class="card-body">
                         <form action="getdata.php" method="post">
