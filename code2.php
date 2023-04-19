@@ -33,7 +33,7 @@ session_start();
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-primary">ROTARY MEMBERS' DETAILS
+                        <h3 class="text-primary">ROTARY MEMBER DETAILS
                             <a href="index2.php" class="btn btn-danger float-right">Add Member</a>
                         </h3>
                     </div>
